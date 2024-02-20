@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CarController : MonoBehaviour
+public class prefabController : MonoBehaviour
 {
     public GameObject[] path;
-    // Start is called before the first frame update
+    //  is called before the first frame update
 
-    public enum CarFSM
+    public enum CustomerFSM
     {
         Spawned = 0,
         InQueue,
@@ -15,14 +15,14 @@ public class CarController : MonoBehaviour
         TowardsExit,
     }
 
-    public CarFSM carFSMState = CarFSM.Spawned;
+    public CustomerFSM customerFSMState = CustomerFSM.Spawned;
     [Header("Tweekable Data")]
     public float parkingLotCuttinDistance = 3f;
     public float parkingLotMaxSpeed = 10f; //36 
 
     void Start()
     {
-        GameObject go = GameObject.Find("CarPath");
+        GameObject go = GameObject.Find("CustomerPath");
         path = GameObject.FindGameObjectsWithTag("Waypoint");
 
         parkingLotCuttinDistance = 3f;
@@ -37,22 +37,22 @@ public class CarController : MonoBehaviour
 
     private void FSM()
     {
-        switch (carFSMState)
+        switch (customerFSMState)
         {
-            case CarFSM.Spawned:
+            case CustomerFSM.Spawned:
                 HandleSpawned();
                 break;
-            case CarFSM.InQueue:
+            case CustomerFSM.InQueue:
                 HandleInQueue();
                 break;
-            case CarFSM.InService:
+            case CustomerFSM.InService:
                 HandleInService();
                 break;
-            case CarFSM.TowardsExit:
+            case CustomerFSM.TowardsExit:
                 HandleTowardsExit();
                 break;
             default:
-                throw new System.Exception("CarFSM statu unknown:" + carFSMState);
+                throw new System.Exception("CustomerFSM statu unknown:" + customerFSMState);
                 break;
         }
     }
@@ -86,21 +86,21 @@ public class CarController : MonoBehaviour
             newPos.z += newDist;
             transform.position = newPos;
         }
-        // carFSMState = CarFSM.InQueue;
+        // customerFSMState = CustomerFSM.InQueue;
     }
 
     private void HandleInQueue()
     {
-        // carFSMState = CarFSM.InService;
+        // customerFSMState = CustomerFSM.InService;
     }
 
     private void HandleInService()
     {
-        // carFSMState = CarFSM.TowardsExit;
+        // customerFSMState = CustomerFSM.TowardsExit;
     }
 
     private void HandleTowardsExit()
     {
-        // carFSMState = CarFSM.Spawned;
+        // customerFSMState = CustomerFSM.Spawned;
     }
 }
