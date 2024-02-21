@@ -9,6 +9,9 @@ TagManager:
   - ExitDoor
   - Waypoint
   - Car
+  - CounterWindow
+  - PersonExit
+  - Person
   layers:
   - Default
   - TransparentFX
