@@ -18,7 +18,7 @@ public class PrefabController : MonoBehaviour
     public enum PersonState
     {
         None=-1,
-        Entered,  //going towards the DriveThruWindow (don't bump into fron cars)
+        Entered,  
         InService,
         Serviced
     }
@@ -41,7 +41,7 @@ public class PrefabController : MonoBehaviour
     {
         switch (personState)
         {
-            case PersonState.None: //do nothing - shouldn't happen
+            case PersonState.None:
                 break;
             case PersonState.Entered:
                 DoEntered();

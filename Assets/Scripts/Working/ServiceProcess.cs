@@ -8,24 +8,17 @@ public class ServiceProcess : MonoBehaviour
     public GameObject personInService;
     public Transform personExitPlace;
 
-    public float serviceRateAsPersonsPerHour = 682.358f; // person/hour
-    public float interServiceTimeInHours; // = 1.0 / ServiceRateAsPersonsPerHour;
+    public float serviceRateAsPersonsPerHour = 682.358f;
+    public float interServiceTimeInHours;
     private float interServiceTimeInMinutes;
     private float interServiceTimeInSeconds;
 
-    //public float ServiceRateAsPersonsPerHour = 20; // person/hour
     public bool generateServices = false;
 
-    //New as of Feb.23rd
-    //Simple generation distribution - Uniform(min,max)
-    //
     public float minInterServiceTimeInSeconds = 3;
     public float maxInterServiceTimeInSeconds = 60;
-    //
 
-    //New as Feb.25th
-    //PersonController personController;
-    QueueManager queueManager; //=new QueueManager();
+    QueueManager queueManager;
 
     public enum ServiceIntervalTimeStrategy
     {
@@ -43,22 +36,15 @@ public class ServiceProcess : MonoBehaviour
         interServiceTimeInHours = 1.0f / serviceRateAsPersonsPerHour;
         interServiceTimeInMinutes = interServiceTimeInHours * 60;
         interServiceTimeInSeconds = interServiceTimeInMinutes * 60;
-        //queueManager = this.GetComponent<QueueManager>();
-        //queueManager = new QueueManager();
-        //StartCoroutine(GenerateServices());
     }
     private void OnTriggerEnter(Collider other)
     {
-#if DEBUG_SP
-        print("ServiceProcess.OnTriggerEnter:otherID=" + other.gameObject.GetInstanceID());
-#endif
 
         if (other.gameObject.tag == "Person")
         {
             personInService = other.gameObject;
             
             generateServices = true;
-            //personController = personInService.GetComponent<PersonController>();
             StartCoroutine(GenerateServices());
         }
     }
@@ -67,7 +53,6 @@ public class ServiceProcess : MonoBehaviour
     {
         while (generateServices)
         {
-            //Instantiate(personPrefab, personSpawnPlace.position, Quaternion.identity);
             float timeToNextServiceInSec = interServiceTimeInSeconds;
             switch (serviceIntervalTimeStrategy)
             {
@@ -91,12 +76,9 @@ public class ServiceProcess : MonoBehaviour
 
             }
 
-            //New as of Feb.23rd
-            //float timeToNextServiceInSec = Random.Range(minInterServiceTimeInSeconds,maxInterServiceTimeInSeconds);
             generateServices = false;
             yield return new WaitForSeconds(timeToNextServiceInSec);
 
-            //yield return new WaitForSeconds(interServiceTimeInSeconds);
 
         }
         personInService.GetComponent<PrefabController>().ExitService(personExitPlace);
@@ -104,7 +86,6 @@ public class ServiceProcess : MonoBehaviour
     }
     private void OnDrawGizmos()
     {
-        //BoxColliderpersonInService.GetComponent<BoxCollider>
         if (personInService)
         {
             Renderer r = personInService.GetComponent<Renderer>();

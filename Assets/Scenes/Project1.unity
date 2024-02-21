@@ -231,7 +231,7 @@ MonoBehaviour:
   personPrefab: {fileID: 8873946766664811653, guid: 87af6a6c63ad6b548bf774f320feae15,
     type: 3}
   personSpawnPlace: {fileID: 1803298197}
-  arrivalRateAsPersonsPerHour: 396.2
+  arrivalRateAsPersonsPerHour: 400.2
   interArrivalTimeInHours: 0
   generateArrivals: 1
   minInterArrivalTimeInSeconds: 3
@@ -780,7 +780,7 @@ Transform:
   m_GameObject: {fileID: 843447654}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.51, z: 0}
+  m_LocalPosition: {x: -12, y: -0.69000006, z: 23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -788,7 +788,7 @@ Transform:
   - {fileID: 1988152285}
   - {fileID: 1030841231}
   - {fileID: 1716419559}
-  m_Father: {fileID: 1145216596}
+  m_Father: {fileID: 1803298197}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &971348520
 PrefabInstance:
@@ -1005,7 +1005,6 @@ Transform:
   - {fileID: 1803298197}
   - {fileID: 1957535596}
   - {fileID: 1894279282}
-  - {fileID: 843447655}
   - {fileID: 1159527533}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1511,7 +1510,8 @@ Transform:
   m_LocalPosition: {x: 12, y: 1.2, z: -23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 843447655}
   m_Father: {fileID: 1145216596}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1894279280
@@ -1629,7 +1629,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   personInService: {fileID: 0}
   personExitPlace: {fileID: 1894279282}
-  serviceRateAsPersonsPerHour: 682.358
+  serviceRateAsPersonsPerHour: 692
   interServiceTimeInHours: 0
   generateServices: 1
   minInterServiceTimeInSeconds: 3
@@ -1666,8 +1666,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 4.6084332, y: 1, z: 2.1515198}
+  m_Center: {x: -1.8042166, y: 0, z: 0.5757599}
 --- !u!114 &1957535600
 MonoBehaviour:
   m_ObjectHideFlags: 0

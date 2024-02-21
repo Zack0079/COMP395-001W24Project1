@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class QueueManager : MonoBehaviour
 {
-    //Queue<GameObject> queue = new Queue<GameObject>();
     List<GameObject> queue = new List<GameObject>();
     LinkedList<GameObject> q = new LinkedList<GameObject>();
     
@@ -33,9 +32,6 @@ public class QueueManager : MonoBehaviour
     public void Add(GameObject gameObject)
     {
         queue.Add(gameObject);
-#if DEBUG_QM
-        print("**** QueueManager.Add:ID=" + gameObject.GetInstanceID() + ", Count="+queue.Count+" ****");
-#endif
     }
     public GameObject PopFirst()
     {
@@ -53,15 +49,9 @@ public class QueueManager : MonoBehaviour
     }
     public void Update()
     {
-#if DEBUG_QM
-        print("*** QueueManager.Update: Count="+queue.Count+" ***");
-#endif
 
     }
     public void Start()
     {
-#if DEBUG_QM
-        print("*** QueueManager.Start ***");    
-#endif
     }
 }

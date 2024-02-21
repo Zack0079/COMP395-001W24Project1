@@ -10,21 +10,16 @@ public class ArrivalProcess : MonoBehaviour
     public Transform personSpawnPlace;
 
     public float arrivalRateAsPersonsPerHour = 396.2f; // person/hour
-    public float interArrivalTimeInHours; // = 1.0 / arrivalRateAsPersonsPerHour;
+    public float interArrivalTimeInHours; 
     private float interArrivalTimeInMinutes;
     private float interArrivalTimeInSeconds;
 
-    //public float arrivalRateAsPersonsPerHour = 20; // person/hour
     public bool generateArrivals = true;
 
-    //New as of Feb.23rd
-    //Simple generation distribution - Uniform(min,max)
-    //
     public float minInterArrivalTimeInSeconds = 3; 
     public float maxInterArrivalTimeInSeconds = 60;
 
-    //Ref: https://en.wikipedia.org/wiki/Triangular_distribution
-    public float a=3, b=7, c=5; // You should have c in (a,b)   a<c<b
+    public float a=3, b=7, c=5;
     //
     public enum ArrivalIntervalTimeStrategy
     {
@@ -37,7 +32,6 @@ public class ArrivalProcess : MonoBehaviour
 
     public ArrivalIntervalTimeStrategy arrivalIntervalTimeStrategy=ArrivalIntervalTimeStrategy.UniformIntervalTime;
 
-    //New as of Feb.25th
     QueueManager queueManager;
 
 
@@ -84,11 +78,8 @@ public class ArrivalProcess : MonoBehaviour
 
             }
 
-            //New as of Feb.23rd
-            //float timeToNextArrivalInSec = Random.Range(minInterArrivalTimeInSeconds,maxInterArrivalTimeInSeconds);
-            yield return new WaitForSeconds(timeToNextArrivalInSec);
+        yield return new WaitForSeconds(timeToNextArrivalInSec);
 
-            //yield return new WaitForSeconds(interArrivalTimeInSeconds);
 
         }
 
