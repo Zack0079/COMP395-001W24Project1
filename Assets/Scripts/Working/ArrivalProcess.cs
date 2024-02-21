@@ -67,9 +67,11 @@ public class ArrivalProcess : MonoBehaviour
                     float Lambda = 1 / arrivalRateAsPersonsPerHour;
                     timeToNextArrivalInSec = Utilities.GetExp(U, Lambda);
                     break;
+
                 case ArrivalIntervalTimeStrategy.ObservedIntervalTime:
                     timeToNextArrivalInSec = interArrivalTimeInSeconds;
                     break;
+
                 case ArrivalIntervalTimeStrategy.TriangularDistribution:
                     timeToNextArrivalInSec = Utilities.GetTriangularDistribution(U, a, b, c);
                     break;
@@ -78,7 +80,7 @@ public class ArrivalProcess : MonoBehaviour
                     break;
 
             }
-                    print("timeToNextArrivalInSec: " + timeToNextArrivalInSec);
+            print("timeToNextArrivalInSec: " + timeToNextArrivalInSec);
 
             yield return new WaitForSeconds(timeToNextArrivalInSec);
 
@@ -89,5 +91,11 @@ public class ArrivalProcess : MonoBehaviour
     public void UpdateStrategy(int index)
     {
         arrivalIntervalTimeStrategy = (ArrivalIntervalTimeStrategy)index;
+    }
+
+    public void UpdateTimeScale(int index)
+    {
+        int[] arr = { 1, 2, 3, 5, 8, 10 };
+        Time.timeScale = arr[index];
     }
 }
