@@ -2883,7 +2883,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 16847159}
         m_TargetAssemblyTypeName: ArrivalProcess, Assembly-CSharp
-        m_MethodName: UpdateStrategy
+        m_MethodName: UpdateTimeScale
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
